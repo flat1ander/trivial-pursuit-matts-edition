@@ -6,6 +6,7 @@ const answerD = document.querySelector('#answer-d')
 const restart = document.querySelector('#restart')
 const nextQuestion = document.querySelector('#next-question')
 
+
 // const submitAnswer = document.querySelector('#submit-answer')
 const questionText = document.querySelector('#question-text')
 
@@ -103,8 +104,9 @@ let triviaQuestions = [
     }]
 
 // Declaring variables for the current question and the score:
-let currentQuestion = 0;
+let currentQuestion = 2;
 let playerScore = 0;
+let totalScore = 0;
 
 // Creating an if statement that will populate the page with the questions/answers based on the currentQuestion variable:
     if(currentQuestion === 0){
@@ -170,16 +172,89 @@ let playerScore = 0;
     }
 
 
-    
 // Game Start function below:    
 function gameStart() {
     currentQuestion = 0;
-    questionText.innerHTML = triviaQuestions[0].question;
+    
 
 }
 
 
+//Game Restart function:
+function restartGame () {
+    currentQuestion = 0;
+    playerScore = 0;
+    questionText.innerHTML = triviaQuestions[0].question;
+    answerA.innerHTML = triviaQuestions[0].answers[0].a;
+    answerB.innerHTML = triviaQuestions[0].answers[1].b;
+    answerC.innerHTML = triviaQuestions[0].answers[2].c;
+    answerD.innerHTML = triviaQuestions[0].answers[3].d;
+}
 
+// Next Question function:
+function nextQuestionFunc () {
+    currentQuestion ++;
+    if(currentQuestion === 1){
+        questionText.innerHTML = triviaQuestions[1].question;
+        answerA.innerHTML = triviaQuestions[1].answers[0].a;
+        answerB.innerHTML = triviaQuestions[1].answers[1].b;
+        answerC.innerHTML = triviaQuestions[1].answers[2].c;
+        answerD.innerHTML = triviaQuestions[1].answers[3].d;
+    }else if(currentQuestion === 2){
+        questionText.innerHTML = triviaQuestions[2].question;
+        answerA.innerHTML = triviaQuestions[2].answers[0].a;
+        answerB.innerHTML = triviaQuestions[2].answers[1].b;
+        answerC.innerHTML = triviaQuestions[2].answers[2].c;
+        answerD.innerHTML = triviaQuestions[2].answers[3].d;
+    }else if(currentQuestion === 3){
+        questionText.innerHTML = triviaQuestions[3].question;
+        answerA.innerHTML = triviaQuestions[3].answers[0].a;
+        answerB.innerHTML = triviaQuestions[3].answers[1].b;
+        answerC.innerHTML = triviaQuestions[3].answers[2].c;
+        answerD.innerHTML = triviaQuestions[3].answers[3].d;
+    }else if(currentQuestion === 4){
+        questionText.innerHTML = triviaQuestions[4].question;
+        answerA.innerHTML = triviaQuestions[4].answers[0].a;
+        answerB.innerHTML = triviaQuestions[4].answers[1].b;
+        answerC.innerHTML = triviaQuestions[4].answers[2].c;
+        answerD.innerHTML = triviaQuestions[4].answers[3].d;
+    }else if(currentQuestion === 5){
+        questionText.innerHTML = triviaQuestions[5].question;
+        answerA.innerHTML = triviaQuestions[5].answers[0].a;
+        answerB.innerHTML = triviaQuestions[5].answers[1].b;
+        answerC.innerHTML = triviaQuestions[5].answers[2].c;
+        answerD.innerHTML = triviaQuestions[5].answers[3].d;
+    }else if(currentQuestion === 6){
+        questionText.innerHTML = triviaQuestions[6].question;
+        answerA.innerHTML = triviaQuestions[6].answers[0].a;
+        answerB.innerHTML = triviaQuestions[6].answers[1].b;
+        answerC.innerHTML = triviaQuestions[6].answers[2].c;
+        answerD.innerHTML = triviaQuestions[6].answers[3].d;
+    }else if(currentQuestion === 7){
+        questionText.innerHTML = triviaQuestions[7].question;
+        answerA.innerHTML = triviaQuestions[7].answers[0].a;
+        answerB.innerHTML = triviaQuestions[7].answers[1].b;
+        answerC.innerHTML = triviaQuestions[7].answers[2].c;
+        answerD.innerHTML = triviaQuestions[7].answers[3].d;
+    }else if(currentQuestion === 8){
+        questionText.innerHTML = triviaQuestions[8].question;
+        answerA.innerHTML = triviaQuestions[8].answers[0].a;
+        answerB.innerHTML = triviaQuestions[8].answers[1].b;
+        answerC.innerHTML = triviaQuestions[8].answers[2].c;
+        answerD.innerHTML = triviaQuestions[8].answers[3].d;
+    }else if(currentQuestion === 9){
+        questionText.innerHTML = triviaQuestions[9].question;
+        answerA.innerHTML = triviaQuestions[9].answers[0].a;
+        answerB.innerHTML = triviaQuestions[9].answers[1].b;
+        answerC.innerHTML = triviaQuestions[9].answers[2].c;
+        answerD.innerHTML = triviaQuestions[9].answers[3].d;
+    }else {
+        questionText.innerHTML = "Thank you for playing!"
+        
+    }
+}
 
-
+// Adding on-click events
+restart.addEventListener('click', restartGame);
+nextQuestion.addEventListener('click', nextQuestionFunc);
 
