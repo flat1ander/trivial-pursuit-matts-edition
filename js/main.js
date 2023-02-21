@@ -5,10 +5,9 @@ const answerC = document.querySelector('#answer-c')
 const answerD = document.querySelector('#answer-d')
 const restart = document.querySelector('#restart')
 const nextQuestion = document.querySelector('#next-question')
-
-
-// const submitAnswer = document.querySelector('#submit-answer')
+const submitAnswer = document.querySelector('#submit-answer')
 const questionText = document.querySelector('#question-text')
+
 
 // Creating the 10 trivia questions:
 let triviaQuestions = [
@@ -104,7 +103,7 @@ let triviaQuestions = [
     }]
 
 // Declaring variables for the current question and the score:
-let currentQuestion = 2;
+let currentQuestion = 0;
 let playerScore = 0;
 let totalScore = 0;
 
@@ -173,11 +172,11 @@ let totalScore = 0;
 
 
 // Game Start function below:    
-function gameStart() {
-    currentQuestion = 0;
-    
+// function gameStart() {
+//     currentQuestion = 0;
+//     questionText.innerHTML = triviaQuestions[currentQuestion].question
 
-}
+// }
 
 
 //Game Restart function:
@@ -250,7 +249,6 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
     }else {
         questionText.innerHTML = "Thank you for playing!"
-        
     }
 }
 
