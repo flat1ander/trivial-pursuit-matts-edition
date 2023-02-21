@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivial Pursuit: Matt Edition</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <h1>Trivial Pursuit: Matt Edition</h1>
+        <div class = "game-board">
+            <div class = "score">
+                <!-- <span id = "result-display">TRUE</span> -->
+                <span id = "player-score">0</span>
+                <span id="out-of">out of</span>
+                <span id = "total-score">0</span>
+            </div>
+            <div class = "play-area">
+                <div id="question-text">This is where a question will go.</div>
+                <div class="possible-answers">
+                    <button class ="btn answer-button" id="answer-a">Answer A</button>
+                    <button class ="btn answer-button" id="answer-b">Answer B</button>
+                    <button class ="btn answer-button" id="answer-c">Answer C</button>
+                    <button class ="btn answer-button" id="answer-d">Answer D</button>
+                </div>    
+            </div>    
+            <div class = "game-controls">
+                <button class="btn controls-button" id="restart">Restart</button>
+                <button class="btn controls-button" id="submit-answer">Submit Answer</button>
+                <button class="btn controls-button" id="next-question">Next Question</button>
+            </div>
+        </div>
+</body>
+</html>
