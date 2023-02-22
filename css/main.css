@@ -60,10 +60,9 @@ h1{
     cursor: pointer;
 }
 
-/* #result-display{
-    font-size:x-large;
-    font-weight: bold;
-} */
+.hide {
+    display: none;
+ }
 
 .score{
     font-size:x-large;
