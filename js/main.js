@@ -5,7 +5,6 @@ const answerC = document.querySelector('#answer-c')
 const answerD = document.querySelector('#answer-d')
 const restart = document.querySelector('#restart')
 const nextQuestion = document.querySelector('#next-question')
-const submitAnswer = document.querySelector('#submit-answer')
 const questionText = document.querySelector('#question-text')
 const answerButtons = document.querySelector('.possible-answers')
 let playerScore = document.querySelector('#player-score')
@@ -16,93 +15,93 @@ let resultDisplay = document.querySelector('#result-display')
 // Creating the 10 trivia questions:
 let triviaQuestions = [
     {
-        question: "Who was the original lead singer for the influential rock band The Velvet Underground?",
+        question: 'Who was the original lead singer for the influential rock band The Velvet Underground?',
         answers: [
-            {a: "Glenn Danzig", answer: false},
-            {b: "Lou Reed", answer: true},
-            {c: "Robert Plant", answer: false},
-            {d: "Mick Jagger", answeR: false},
+            {a: 'Glenn Danzig', answer: false},
+            {b: 'Lou Reed', answer: true},
+            {c: 'Robert Plant', answer: false},
+            {d: 'Mick Jagger', answeR: false},
         ]
     },
     {
-        question: "Which of these films was NOT directed by Stanley Kubrick?",
+        question: 'Which of these films was NOT directed by Stanley Kubrick?',
         answers: [
-            {a: "2001: A Space Odyssey", answer: false},
-            {b: "The Shining", answer: false},
-            {c: "Full Metal Jacket", answer: false},
-            {d: "The Godfather", answer: true},
+            {a: '2001: A Space Odyssey', answer: false},
+            {b: 'The Shining', answer: false},
+            {c: 'Full Metal Jacket', answer: false},
+            {d: 'The Godfather', answer: true},
         ]
     },
     {
-        question: "Who is the leading scorer in NBA history?",
+        question: 'Who is the leading scorer in NBA history?',
         answers: [
-            {a: "Kareem-Abdul Jabar", answer: false},
-            {b: "Lebron James", answer: true},
-            {c: "Michael Jordan", answer: false},
-            {d: "Patrick Ewing", answer: false},
+            {a: 'Kareem-Abdul Jabar', answer: false},
+            {b: 'Lebron James', answer: true},
+            {c: 'Michael Jordan', answer: false},
+            {d: 'Patrick Ewing', answer: false},
         ]
     },
     {
-        question: "Which of these characters is the narrator in the classic novel 'Moby Dick'?",
+        question: 'Which of these characters is the narrator in the classic novel Moby Dick?',
         answers: [
-            {a: "Ishmael", answer: true},
-            {b: "Captain Ahab", answer: false},
-            {c: "Elijah", answer: false},
-            {d: "Queequeg", answer: false},
+            {a: 'Ishmael', answer: true},
+            {b: 'Captain Ahab', answer: false},
+            {c: 'Elijah', answer: false},
+            {d: 'Queequeg', answer: false},
         ]
     },
     {
-        question: "Which of these films was NOT nominated for Best Picture at the 2023 Oscars?",
+        question: 'Which of these films was NOT nominated for Best Picture at the 2023 Oscars?',
         answers: [
-            {a: "Banshees of Inisherin", answer: false},
-            {b: "Triangle of Sadness", answer: false},
-            {c: "Moonlight", answer: true},
-            {d: "The Fablemans", answer: false},
+            {a: 'Banshees of Inisherin', answer: false},
+            {b: 'Triangle of Sadness', answer: false},
+            {c: 'Moonlight', answer: true},
+            {d: 'The Fablemans', answer: false},
         ]
     },
     {
-        question: "Who performed at the 2023 Superbowl halftime show?",
+        question: 'Who performed at the 2023 Superbowl halftime show?',
         answers: [
-            {a: "Beyonce", answer: false},
-            {b: "Bruno Mars", answer: false},
-            {c: "The Rolling Stones", answer: false},
-            {d: "Rihanna", answer: true},
+            {a: 'Beyonce', answer: false},
+            {b: 'Bruno Mars', answer: false},
+            {c: 'The Rolling Stones', answer: false},
+            {d: 'Rihanna', answer: true},
         ]
     },
     {
-        question: "Who is the highest grossing actor of all time?",
+        question: 'Who is the highest grossing actor of all time?',
         answers: [
-            {a: "Samuel L. Jackson", answer: true},
-            {b: "Robery Downey Jr.", answer: false},
-            {c: "Scarlett Johansson", answer: false},
-            {d: "Tom Hanks", answer: false},
+            {a: 'Samuel L. Jackson', answer: true},
+            {b: 'Robery Downey Jr.', answer: false},
+            {c: 'Scarlett Johansson', answer: false},
+            {d: 'Tom Hanks', answer: false},
         ]
     },
     {
-        question: "Which of these frontmen is considered 'The Godfather of Punk Rock?'",
+        question: 'Which of these frontmen is considered The Godfather of Punk Rock?',
         answers: [
-            {a: "Joey Ramone", answer: false},
-            {b: "Iggy Pop", answer: true},
-            {c: "Johnny Rotten", answer: false},
-            {d: "Jello Biafra", answer: false},
+            {a: 'Joey Ramone', answer: false},
+            {b: 'Iggy Pop', answer: true},
+            {c: 'Johnny Rotten', answer: false},
+            {d: 'Jello Biafra', answer: false},
         ]
     },
     {
-        question: "Which of these drivers won the Formula 1 World Championship in 2022?",
+        question: 'Which of these drivers won the Formula 1 World Championship in 2022?',
         answers: [
-            {a: "Lewis Hamilton", answer: false},
-            {b: "Charles Lecerlc", answer: false},
-            {c: "Max Verstappen", answer: true},
-            {d: "Sebastian Vettel", answer: false},
+            {a: 'Lewis Hamilton', answer: false},
+            {b: 'Charles Leclerc', answer: false},
+            {c: 'Max Verstappen', answer: true},
+            {d: 'Sebastian Vettel', answer: false},
         ]
     },
     {
-        question: "Who played the role of Thomas Magnum in the 1980s television series Magnum P.I.?",
+        question: 'Who played the role of Thomas Magnum in the 1980s television series Magnum P.I.?',
         answers: [
-            {a: "Tom Selleck", answer: true},
-            {b: "Scott Bakula", answer: false},
-            {c: "Peter Faulk", answer: false},
-            {d: "David Hasselhoff", answer: false},
+            {a: 'Tom Selleck', answer: true},
+            {b: 'Scott Bakula', answer: false},
+            {c: 'Peter Faulk', answer: false},
+            {d: 'David Hasselhoff', answer: false},
         ]
     }]
 
@@ -120,16 +119,22 @@ function gameStart() {
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
     resultDisplay.classList.add('hide')
+    restart.classList.add('hide')
 }
 gameStart();
 
 
 // Next Question function:
 function nextQuestionFunc () {
+    // Increment currentQuestion by 1:
     currentQuestion ++;
+    // Loop through all of the answer buttons to enable them again:
     for (let j = 0; j < answerButtons.children.length; j++) {
         answerButtons.children[j].disabled = false;}
     resultDisplay.classList.add('hide')
+    // Disable the next question button until an answer has been selected:
+    nextQuestion.disabled = true;
+    // As the current question is incremented, the question text and possible answers change:
     if(currentQuestion === 1){
         questionText.innerHTML = triviaQuestions[1].question;
         answerA.innerHTML = triviaQuestions[1].answers[0].a;
@@ -185,9 +190,16 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[9].answers[2].c;
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
     }else {
+        resultDisplay.classList.remove('hide')
+        resultDisplay.innerHTML = "You scored:"
+        resultDisplay.style.color = "#00008B"
+        resultDisplay.style.fontSize = "x-large";
         questionText.innerHTML = "Thank you for playing!"
-        answerButtons.classList.add("hide");
-        nextQuestion.classList.add("hide")
+        questionText.style.fontSize = "x-large";
+        answerButtons.classList.add('hide');
+        nextQuestion.classList.add('hide')
+        restart.classList.remove('hide')
+        
     }
 }
 
@@ -196,6 +208,9 @@ function nextQuestionFunc () {
 function clickingAnswers() {
     for (let i = 0; i < answerButtons.children.length; i++) {
       let answerBtn = answerButtons.children[i];
+
+      // Disable next question button while answer has not been selected:
+      nextQuestion.disabled = true;
   
       // Add click event listener to each answer button
       answerBtn.addEventListener('click', function checkingAnswer() {
@@ -203,29 +218,30 @@ function clickingAnswers() {
         // Check if the clicked answer is correct
         let isCorrect = triviaQuestions[currentQuestion].answers[i].answer;
       
-        // Increase player's score if the answer is correct. Increase total score if incorrect.
+        // Increase player's score if the answer is correct. Increase total score if incorrect. Include a message indicating if answer is correct:
         if (isCorrect) {
           playerPoints+= 1;
           totalPoints+= 1; 
           totalScore.innerHTML = totalPoints;
           playerScore.innerHTML = playerPoints;
           resultDisplay.classList.remove('hide')
-          resultDisplay.innerHTML = "Correct!"
-          resultDisplay.style.color = "green"
+          resultDisplay.innerHTML = 'Correct!'
+          resultDisplay.style.color = 'green'
 
         } else {
           totalPoints+= 1;
           totalScore.innerHTML = totalPoints;
           resultDisplay.classList.remove('hide')
-          resultDisplay.innerHTML = "Incorrect"
-          resultDisplay.style.color = "#8B0000"
-
+          resultDisplay.innerHTML = 'Incorrect'
+          resultDisplay.style.color = '#8B0000'
         }
   
         // Disable all buttons after an answer is clicked
         for (let j = 0; j < answerButtons.children.length; j++) {
           answerButtons.children[j].disabled = true;
         }
+        // Enable next question button after an answer is clicked:
+        nextQuestion.disabled = false;
       });
     }
   }
@@ -245,17 +261,17 @@ function restartGame () {
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
-    answerButtons.classList.remove("hide");
-    nextQuestion.classList.remove("hide")
-    totalScore.innerHTML = totalPoints;
-    playerScore.innerHTML = playerPoints; 
+    answerButtons.classList.remove('hide');
+    nextQuestion.classList.remove('hide')
     resultDisplay.classList.add('hide')
+    totalScore.innerHTML = totalPoints;
+    playerScore.innerHTML = playerPoints;
+    restart.classList.add('hide') 
 }
 
 // Adding on-click events to restart, next question and answer buttons with functions declared for each above:
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
-// answerButtons.addEventListener('click', clickingAnswers);
 
 
 
