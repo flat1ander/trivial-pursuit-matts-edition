@@ -12,7 +12,7 @@ let totalScore = document.querySelector('#total-score')
 let resultDisplay = document.querySelector('#result-display')
 
 
-// Creating the 10 trivia questions:
+// Creating the 10 trivia questions as objects inside one large array:
 let triviaQuestions = [
     {
         question: 'Who was the original lead singer for the influential rock band The Velvet Underground?',
@@ -112,15 +112,18 @@ let currentQuestion = 0;
 
 // Game Start function:    
 function gameStart() {
+    // Set current question to 0 (the index value for question #1) and populate the screen with the question and answers:
     currentQuestion = 0;
     questionText.innerHTML = triviaQuestions[currentQuestion].question;
     answerA.innerHTML = triviaQuestions[0].answers[0].a;
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
+    // Hiding the result display which tells you if you answered correctly as well as the restart button:
     resultDisplay.classList.add('hide')
     restart.classList.add('hide')
 }
+// Invoke the gameStart function
 gameStart();
 
 
@@ -189,6 +192,7 @@ function nextQuestionFunc () {
         answerB.innerHTML = triviaQuestions[9].answers[1].b;
         answerC.innerHTML = triviaQuestions[9].answers[2].c;
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
+    // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing:
     }else {
         resultDisplay.classList.remove('hide')
         resultDisplay.innerHTML = "You scored:"
@@ -245,31 +249,37 @@ function clickingAnswers() {
       });
     }
   }
-
+// Invoking the clickingAnswers function:
 clickingAnswers()
 
 
 //Game Restart function:
 function restartGame () {
+    //Resetting all of the scores and current question:
     currentQuestion = 0;
     playerPoints = 0;
     totalPoints = 0;
+    // Looping through the individual answer buttons to enable them to be clicked again:
     for (let j = 0; j < answerButtons.children.length; j++) {
         answerButtons.children[j].disabled = false;}
+    // Resetting the question and answers to question number one:
     questionText.innerHTML = triviaQuestions[0].question;
     answerA.innerHTML = triviaQuestions[0].answers[0].a;
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
+    // Showing the answer buttons and next question button again:
     answerButtons.classList.remove('hide');
     nextQuestion.classList.remove('hide')
+    // Hiding the result display text which tells you if your answer is correct. Also hiding the restart button:
     resultDisplay.classList.add('hide')
+    restart.classList.add('hide')
+    // Linking the internal score variables to the DOM 
     totalScore.innerHTML = totalPoints;
     playerScore.innerHTML = playerPoints;
-    restart.classList.add('hide') 
 }
 
-// Adding on-click events to restart, next question and answer buttons with functions declared for each above:
+// Adding on-click events to restart and next question with functions declared for each above:
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
 
