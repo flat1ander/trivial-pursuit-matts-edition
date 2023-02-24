@@ -125,6 +125,8 @@ gameStart();
 // Next Question function:
 function nextQuestionFunc () {
     currentQuestion ++;
+    for (let j = 0; j < answerButtons.children.length; j++) {
+        answerButtons.children[j].disabled = false;}
     if(currentQuestion === 1){
         questionText.innerHTML = triviaQuestions[1].question;
         answerA.innerHTML = triviaQuestions[1].answers[0].a;
@@ -186,37 +188,36 @@ function nextQuestionFunc () {
     }
 }
 
-
-
-// Adding on-click events to restart, next question and answer buttons with functions declared for each above:
-restart.addEventListener('click', restartGame);
-nextQuestion.addEventListener('click', nextQuestionFunc);
-answerButtons.addEventListener('click', clickingAnswers);
-
 // Adding a function to determine if the correct answer was clicked and adding points to the scoreboard:
 // Loop through each answer button
-function clickingAnswers(){for (let i = 0; i < answerButtons.children.length; i++) {
-    let answerBtn = answerButtons.children[i];
-    
-    // Add click event listener to each answer button
-    answerBtn.addEventListener('click', function() {
+function clickingAnswers() { 
+    for (let i = 0; i < answerButtons.children.length; i++) {
+      let answerBtn = answerButtons.children[i];
+  
+      // Add click event listener to each answer button
+      answerBtn.addEventListener('click', function checkingAnswer() {
       
-      // Check if the clicked answer is correct
-      let isCorrect = triviaQuestions[currentQuestion].answers[i].answer;
+        // Check if the clicked answer is correct
+        let isCorrect = triviaQuestions[currentQuestion].answers[i].answer;
       
-      // Increase player's score if the answer is correct
-      if (isCorrect) {
-        playerPoints+=1;
-        totalPoints+=1; 
-        totalScore.innerHTML = totalPoints;
-        playerScore.innerHTML = playerPoints;  
-      }else{
-        totalPoints+=1;
-        totalScore.innerHTML = totalPoints;
-      }
-      
-    });
-  }}
+        // Increase player's score if the answer is correct. Increase total score if incorrect.
+        if (isCorrect) {
+          playerPoints++;
+          totalPoints++; 
+          totalScore.innerHTML = totalPoints;
+          playerScore.innerHTML = playerPoints;  
+        } else {
+          totalPoints++;
+          totalScore.innerHTML = totalPoints;
+        }
+  
+        // Disable all buttons after an answer is clicked
+        for (let j = 0; j < answerButtons.children.length; j++) {
+          answerButtons.children[j].disabled = true;
+        }
+      });
+    }
+  }
 
 
 //Game Restart function:
@@ -224,6 +225,8 @@ function restartGame () {
     currentQuestion = 0;
     playerPoints = 0;
     totalPoints = 0;
+    for (let j = 0; j < answerButtons.children.length; j++) {
+        answerButtons.children[j].disabled = false;}
     questionText.innerHTML = triviaQuestions[0].question;
     answerA.innerHTML = triviaQuestions[0].answers[0].a;
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
@@ -235,4 +238,7 @@ function restartGame () {
     playerScore.innerHTML = playerPoints; 
 }
 
-
+// Adding on-click events to restart, next question and answer buttons with functions declared for each above:
+restart.addEventListener('click', restartGame);
+nextQuestion.addEventListener('click', nextQuestionFunc);
+answerButtons.addEventListener('click', clickingAnswers);
