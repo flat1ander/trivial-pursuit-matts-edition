@@ -92,6 +92,12 @@ h1{
     font-size: x-large;
 }
 
+#result-display{
+    font-size:xx-large;
+    font-weight: bold;
+    padding: 20px;
+}
+
 
 /* Adding responsive design for tablets and phones below: */
 

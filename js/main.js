@@ -10,6 +10,7 @@ const questionText = document.querySelector('#question-text')
 const answerButtons = document.querySelector('.possible-answers')
 let playerScore = document.querySelector('#player-score')
 let totalScore = document.querySelector('#total-score')
+let resultDisplay = document.querySelector('#result-display')
 
 
 // Creating the 10 trivia questions:
@@ -118,6 +119,7 @@ function gameStart() {
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
+    resultDisplay.classList.add('hide')
 }
 gameStart();
 
@@ -127,6 +129,7 @@ function nextQuestionFunc () {
     currentQuestion ++;
     for (let j = 0; j < answerButtons.children.length; j++) {
         answerButtons.children[j].disabled = false;}
+    resultDisplay.classList.add('hide')
     if(currentQuestion === 1){
         questionText.innerHTML = triviaQuestions[1].question;
         answerA.innerHTML = triviaQuestions[1].answers[0].a;
@@ -190,7 +193,7 @@ function nextQuestionFunc () {
 
 // Adding a function to determine if the correct answer was clicked and adding points to the scoreboard:
 // Loop through each answer button
-function clickingAnswers() { 
+function clickingAnswers() {
     for (let i = 0; i < answerButtons.children.length; i++) {
       let answerBtn = answerButtons.children[i];
   
@@ -202,13 +205,21 @@ function clickingAnswers() {
       
         // Increase player's score if the answer is correct. Increase total score if incorrect.
         if (isCorrect) {
-          playerPoints++;
-          totalPoints++; 
+          playerPoints+= 1;
+          totalPoints+= 1; 
           totalScore.innerHTML = totalPoints;
-          playerScore.innerHTML = playerPoints;  
+          playerScore.innerHTML = playerPoints;
+          resultDisplay.classList.remove('hide')
+          resultDisplay.innerHTML = "Correct!"
+          resultDisplay.style.color = "green"
+
         } else {
-          totalPoints++;
+          totalPoints+= 1;
           totalScore.innerHTML = totalPoints;
+          resultDisplay.classList.remove('hide')
+          resultDisplay.innerHTML = "Incorrect"
+          resultDisplay.style.color = "#8B0000"
+
         }
   
         // Disable all buttons after an answer is clicked
@@ -218,6 +229,8 @@ function clickingAnswers() {
       });
     }
   }
+
+clickingAnswers()
 
 
 //Game Restart function:
@@ -236,9 +249,13 @@ function restartGame () {
     nextQuestion.classList.remove("hide")
     totalScore.innerHTML = totalPoints;
     playerScore.innerHTML = playerPoints; 
+    resultDisplay.classList.add('hide')
 }
 
 // Adding on-click events to restart, next question and answer buttons with functions declared for each above:
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
-answerButtons.addEventListener('click', clickingAnswers);
+// answerButtons.addEventListener('click', clickingAnswers);
+
+
+
