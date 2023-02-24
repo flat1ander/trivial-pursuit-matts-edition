@@ -19,7 +19,7 @@ h1{
    max-width: 70%;
    background-color:cornflowerblue;
    height: 65vh;
-   box-shadow: 0 0 5px 4px;
+   box-shadow: 0 0 5px 5px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -42,7 +42,7 @@ h1{
     background-color: salmon;
     color:darkblue;
     border-radius: 7px;
-    box-shadow: 0 0 2px 2px;
+    box-shadow: 0 0 3px 3px;
     padding: 10px;
     margin: 7px;
     cursor: pointer;
@@ -54,7 +54,7 @@ h1{
     background-color:darksalmon;
     color:darkblue;
     border-radius: 7px;
-    box-shadow: 0 0 2px 2px;
+    box-shadow: 0 0 3px 3px;
     padding: 10px;
     margin: 7px;
     cursor: pointer;

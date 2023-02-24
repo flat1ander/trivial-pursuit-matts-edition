@@ -105,12 +105,10 @@ let triviaQuestions = [
         ]
     }]
 
-// Declaring variables for the current question and the score and assigning them to the DOM elements created above:
-let currentQuestion = 0;
+// Declaring variables for the current question and the score:
 let playerPoints = 0;
 let totalPoints = 0;
-playerScore.innerHTML = playerPoints;
-totalScore.innerHTML = totalPoints;
+let currentQuestion = 0;
 
 // Game Start function:    
 function gameStart() {
@@ -123,30 +121,6 @@ function gameStart() {
 }
 gameStart();
 
-// Adding a function for determining if the correct answer was clicked and adding points to the scoreboard:
-function clickingAnswers() {
-    if (triviaQuestions[currentQuestion].answers.answer === true)
-    {
-        playerPoints++;
-        totalPoints++;     
-}else {
-    totalPoints++;
-}
-}
-
-//Game Restart function:
-function restartGame () {
-    currentQuestion = 0;
-    playerScore = 0;
-    totalPoints = 0;
-    questionText.innerHTML = triviaQuestions[0].question;
-    answerA.innerHTML = triviaQuestions[0].answers[0].a;
-    answerB.innerHTML = triviaQuestions[0].answers[1].b;
-    answerC.innerHTML = triviaQuestions[0].answers[2].c;
-    answerD.innerHTML = triviaQuestions[0].answers[3].d;
-    answerButtons.classList.remove("hide");
-    nextQuestion.classList.remove("hide")
-}
 
 // Next Question function:
 function nextQuestionFunc () {
@@ -212,9 +186,53 @@ function nextQuestionFunc () {
     }
 }
 
+
+
 // Adding on-click events to restart, next question and answer buttons with functions declared for each above:
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
-answerButtons.addEventListener('click', clickingAnswers)
+answerButtons.addEventListener('click', clickingAnswers);
+
+// Adding a function to determine if the correct answer was clicked and adding points to the scoreboard:
+// Loop through each answer button
+function clickingAnswers(){for (let i = 0; i < answerButtons.children.length; i++) {
+    let answerBtn = answerButtons.children[i];
+    
+    // Add click event listener to each answer button
+    answerBtn.addEventListener('click', function() {
+      
+      // Check if the clicked answer is correct
+      let isCorrect = triviaQuestions[currentQuestion].answers[i].answer;
+      
+      // Increase player's score if the answer is correct
+      if (isCorrect) {
+        playerPoints+=1;
+        totalPoints+=1; 
+        totalScore.innerHTML = totalPoints;
+        playerScore.innerHTML = playerPoints;  
+      }else{
+        totalPoints+=1;
+        totalScore.innerHTML = totalPoints;
+      }
+      
+    });
+  }}
+
+
+//Game Restart function:
+function restartGame () {
+    currentQuestion = 0;
+    playerPoints = 0;
+    totalPoints = 0;
+    questionText.innerHTML = triviaQuestions[0].question;
+    answerA.innerHTML = triviaQuestions[0].answers[0].a;
+    answerB.innerHTML = triviaQuestions[0].answers[1].b;
+    answerC.innerHTML = triviaQuestions[0].answers[2].c;
+    answerD.innerHTML = triviaQuestions[0].answers[3].d;
+    answerButtons.classList.remove("hide");
+    nextQuestion.classList.remove("hide")
+    totalScore.innerHTML = totalPoints;
+    playerScore.innerHTML = playerPoints; 
+}
 
 
