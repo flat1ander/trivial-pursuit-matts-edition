@@ -192,6 +192,8 @@ function nextQuestionFunc () {
         answerB.innerHTML = triviaQuestions[9].answers[1].b;
         answerC.innerHTML = triviaQuestions[9].answers[2].c;
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
+        // Changing next question button text to read 'Complete Game' on last question
+        nextQuestion.innerHTML = 'Complete Game'
     // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing:
     }else {
         resultDisplay.classList.remove('hide')
@@ -278,6 +280,8 @@ function restartGame () {
     // Linking the internal score variables to the DOM 
     totalScore.innerHTML = totalPoints;
     playerScore.innerHTML = playerPoints;
+    // Changing next question button text back to 'Next Question' if game is restarted:
+    nextQuestion.innerHTML = 'Next Question'
 }
 
 // Adding on-click events to restart and next question with the functions declared for each above:
