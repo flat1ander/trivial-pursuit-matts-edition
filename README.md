@@ -4,6 +4,9 @@
 ![wireframe](https://i.imgur.com/hdFeLuz.png)
 
 ### End game screen example:
+![wireframe](https://i.imgur.com/hjkMEc7.png)
+
+### End game screen example:
 
 ## Game Description
 This game is a ten question multiple choice trivia game.
