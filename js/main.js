@@ -122,6 +122,7 @@ function gameStart() {
     // Hiding the result display which tells you if you answered correctly as well as the restart button:
     resultDisplay.classList.add('hide')
     restart.classList.add('hide')
+    nextQuestion.classList.add('hide')
 }
 // Invoke the gameStart function
 gameStart();
@@ -137,61 +138,70 @@ function nextQuestionFunc () {
     resultDisplay.classList.add('hide')
     // Disable the next question button until an answer has been selected:
     nextQuestion.disabled = true;
-    // As the current question is incremented, the question text and possible answers change:
+    // As the current question is incremented, the question text and possible answers change. We also hide the next question button until an answer has been selected:
     if(currentQuestion === 1){
         questionText.innerHTML = triviaQuestions[1].question;
         answerA.innerHTML = triviaQuestions[1].answers[0].a;
         answerB.innerHTML = triviaQuestions[1].answers[1].b;
         answerC.innerHTML = triviaQuestions[1].answers[2].c;
         answerD.innerHTML = triviaQuestions[1].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 2){
         questionText.innerHTML = triviaQuestions[2].question;
         answerA.innerHTML = triviaQuestions[2].answers[0].a;
         answerB.innerHTML = triviaQuestions[2].answers[1].b;
         answerC.innerHTML = triviaQuestions[2].answers[2].c;
         answerD.innerHTML = triviaQuestions[2].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 3){
         questionText.innerHTML = triviaQuestions[3].question;
         answerA.innerHTML = triviaQuestions[3].answers[0].a;
         answerB.innerHTML = triviaQuestions[3].answers[1].b;
         answerC.innerHTML = triviaQuestions[3].answers[2].c;
         answerD.innerHTML = triviaQuestions[3].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 4){
         questionText.innerHTML = triviaQuestions[4].question;
         answerA.innerHTML = triviaQuestions[4].answers[0].a;
         answerB.innerHTML = triviaQuestions[4].answers[1].b;
         answerC.innerHTML = triviaQuestions[4].answers[2].c;
         answerD.innerHTML = triviaQuestions[4].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 5){
         questionText.innerHTML = triviaQuestions[5].question;
         answerA.innerHTML = triviaQuestions[5].answers[0].a;
         answerB.innerHTML = triviaQuestions[5].answers[1].b;
         answerC.innerHTML = triviaQuestions[5].answers[2].c;
         answerD.innerHTML = triviaQuestions[5].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 6){
         questionText.innerHTML = triviaQuestions[6].question;
         answerA.innerHTML = triviaQuestions[6].answers[0].a;
         answerB.innerHTML = triviaQuestions[6].answers[1].b;
         answerC.innerHTML = triviaQuestions[6].answers[2].c;
         answerD.innerHTML = triviaQuestions[6].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 7){
         questionText.innerHTML = triviaQuestions[7].question;
         answerA.innerHTML = triviaQuestions[7].answers[0].a;
         answerB.innerHTML = triviaQuestions[7].answers[1].b;
         answerC.innerHTML = triviaQuestions[7].answers[2].c;
         answerD.innerHTML = triviaQuestions[7].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 8){
         questionText.innerHTML = triviaQuestions[8].question;
         answerA.innerHTML = triviaQuestions[8].answers[0].a;
         answerB.innerHTML = triviaQuestions[8].answers[1].b;
         answerC.innerHTML = triviaQuestions[8].answers[2].c;
         answerD.innerHTML = triviaQuestions[8].answers[3].d;
+        nextQuestion.classList.add('hide')
     }else if(currentQuestion === 9){
         questionText.innerHTML = triviaQuestions[9].question;
         answerA.innerHTML = triviaQuestions[9].answers[0].a;
         answerB.innerHTML = triviaQuestions[9].answers[1].b;
         answerC.innerHTML = triviaQuestions[9].answers[2].c;
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
+        nextQuestion.classList.add('hide')
         // Changing next question button text to read 'Complete Game' on last question
         nextQuestion.innerHTML = 'Complete Game'
     // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing:
@@ -245,7 +255,8 @@ function clickingAnswers() {
         for (let j = 0; j < answerButtons.children.length; j++) {
           answerButtons.children[j].disabled = true;
         }
-        // Enable next question button after an answer is clicked:
+        // Show and enable next question button after an answer is clicked:
+        nextQuestion.classList.remove('hide')
         nextQuestion.disabled = false;
       });
     }
@@ -282,6 +293,8 @@ function restartGame () {
     playerScore.innerHTML = playerPoints;
     // Changing next question button text back to 'Next Question' if game is restarted:
     nextQuestion.innerHTML = 'Next Question'
+    // Hiding the next question button upon restart until the question has been answered:
+    nextQuestion.classList.add('hide')
 }
 
 // Adding on-click events to restart and next question with the functions declared for each above:

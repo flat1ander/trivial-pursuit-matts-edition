@@ -1,7 +1,7 @@
 # Trivial Pursuit: Matt Edition
 
 ### Main game screen example:
-![wireframe](https://i.imgur.com/hdFeLuz.png)
+![wireframe](https://i.imgur.com/CtCc0iv.png)
 ### End game screen example:
 ![wireframe](https://i.imgur.com/hjkMEc7.png)
 
