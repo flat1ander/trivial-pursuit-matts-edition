@@ -7,15 +7,17 @@ const restart = document.querySelector('#restart')
 const nextQuestion = document.querySelector('#next-question')
 const questionText = document.querySelector('#question-text')
 const answerButtons = document.querySelector('.possible-answers')
-let playerScore = document.querySelector('#player-score')
-let totalScore = document.querySelector('#total-score')
-let resultDisplay = document.querySelector('#result-display')
+const yourScore = document.querySelector('#your-score')
+const playerScore = document.querySelector('#player-score')
+const totalScore = document.querySelector('#total-score')
+const resultDisplay = document.querySelector('#result-display')
+
 
 
 // Creating the 10 trivia questions as objects inside one large array:
 let triviaQuestions = [
     {
-        question: 'Who was the original lead singer for the influential rock band The Velvet Underground?',
+        question: 'Who was the original lead singer for the influential rock group The Velvet Underground?',
         answers: [
             {a: 'Glenn Danzig', answer: false},
             {b: 'Lou Reed', answer: true},
@@ -200,15 +202,17 @@ function nextQuestionFunc () {
         questionText.innerHTML = "Thank you for playing!"
         answerButtons.classList.add('hide');
         nextQuestion.classList.add('hide')
+        yourScore.classList.add('hide')
         restart.classList.remove('hide')
     }
 }
 
-// Adding a function to determine if the correct answer was clicked and adding points to the scoreboard:
-// Loop through each answer button
+// Adding a function to determine if the correct answer was clicked and adding points to the scoreboard
+// Loop through each answer button:
 function clickingAnswers() {
     for (let i = 0; i < answerButtons.children.length; i++) {
-      let answerBtn = answerButtons.children[i];
+      // Declare a variable for the individual answer buttons:
+        let answerBtn = answerButtons.children[i];
 
       // Disable next question button while answer has not been selected:
       nextQuestion.disabled = true;
@@ -219,7 +223,7 @@ function clickingAnswers() {
         // Check if the clicked answer is correct
         let isCorrect = triviaQuestions[currentQuestion].answers[i].answer;
       
-        // Increase player's score if the answer is correct. Increase total score if incorrect. Include a message indicating if answer is correct:
+        // Increase player's score and total score if the answer is correct. Only increase total score if incorrect. Include a message indicating if answer is correct or not:
         if (isCorrect) {
           playerPoints+= 1;
           totalPoints+= 1; 
@@ -271,14 +275,22 @@ function restartGame () {
     // Hiding the result display text which tells you if your answer is correct. Also hiding the restart button:
     resultDisplay.classList.add('hide')
     restart.classList.add('hide')
+    // Showing the yourScore variable
+    yourScore.classList.remove('hide')
     // Linking the internal score variables to the DOM 
     totalScore.innerHTML = totalPoints;
     playerScore.innerHTML = playerPoints;
 }
 
-// Adding on-click events to restart and next question with functions declared for each above:
+// Adding on-click events to restart and next question with the functions declared for each above:
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
+
+
+
+
+
+
 
 
 
