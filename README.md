@@ -24,7 +24,7 @@ This game is a ten question multiple choice trivia game:
 <li>As a player, I want to be able to click on one of four possible answers to the presented question</li>
 <li>As a player, I want to receive feedback if my answer is correct or incorrect</li>
 <li>As a player, I want the correct number of points to be added to my total score</li>
-<li>As a player, I only want to be able to answer each question once</li>
+<li>As a player, I only want to be able to answer each question once before moving on to the next question</li>
 <li>As a player, I want to be able to move on to the next question by clicking a button</li>
 <li>As a player, I want to receive feedback at the conclusion of the game to inform me if I won</li>
 
