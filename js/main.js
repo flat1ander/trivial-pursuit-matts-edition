@@ -11,6 +11,8 @@ const yourScore = document.querySelector('#your-score')
 const playerScore = document.querySelector('#player-score')
 const totalScore = document.querySelector('#total-score')
 const resultDisplay = document.querySelector('#result-display')
+const gameStartBtn = document.querySelector('#game-start') 
+const scoreboard = document.querySelector('.score')
 
 // Creating the 10 trivia questions as objects inside one large array:
 let triviaQuestions = [
@@ -110,8 +112,20 @@ let playerPoints = 0;
 let totalPoints = 0;
 let currentQuestion = 0;
 
+
+
+
 // Game Start function:    
 function gameStart() {
+    questionText.innerHTML = 'Welcome to Trivial Pursuit: Matt Edition! To win this game you must answer at least seven out of the ten multiple choice questions correctly. Good luck!'
+    answerA.classList.add('hide')
+    answerB.classList.add('hide')
+    answerC.classList.add('hide')
+    answerD.classList.add('hide')
+    restart.classList.add('hide')
+    nextQuestion.classList.add('hide')
+    scoreboard.classList.add('hide')
+    { gameStartBtn.addEventListener('click', function startGameClicked() {
     // Set current question to 0 (the index value for question #1) and populate the screen with the question and answers:
     currentQuestion = 0;
     questionText.innerHTML = triviaQuestions[currentQuestion].question;
@@ -119,11 +133,17 @@ function gameStart() {
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
+    answerA.classList.remove('hide')
+    answerB.classList.remove('hide')
+    answerC.classList.remove('hide')
+    answerD.classList.remove('hide')
+    scoreboard.classList.remove('hide')
     // Hiding the result display which tells you if you answered correctly as well as the restart button:
     resultDisplay.classList.add('hide')
     restart.classList.add('hide')
     nextQuestion.classList.add('hide')
-}
+    gameStartBtn.classList.add('hide')
+})}}
 // Invoke the gameStart function
 gameStart();
 
@@ -146,6 +166,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[1].answers[2].c;
         answerD.innerHTML = triviaQuestions[1].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 2){
         questionText.innerHTML = triviaQuestions[2].question;
         answerA.innerHTML = triviaQuestions[2].answers[0].a;
@@ -153,6 +174,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[2].answers[2].c;
         answerD.innerHTML = triviaQuestions[2].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 3){
         questionText.innerHTML = triviaQuestions[3].question;
         answerA.innerHTML = triviaQuestions[3].answers[0].a;
@@ -160,6 +182,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[3].answers[2].c;
         answerD.innerHTML = triviaQuestions[3].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 4){
         questionText.innerHTML = triviaQuestions[4].question;
         answerA.innerHTML = triviaQuestions[4].answers[0].a;
@@ -167,6 +190,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[4].answers[2].c;
         answerD.innerHTML = triviaQuestions[4].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 5){
         questionText.innerHTML = triviaQuestions[5].question;
         answerA.innerHTML = triviaQuestions[5].answers[0].a;
@@ -174,6 +198,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[5].answers[2].c;
         answerD.innerHTML = triviaQuestions[5].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 6){
         questionText.innerHTML = triviaQuestions[6].question;
         answerA.innerHTML = triviaQuestions[6].answers[0].a;
@@ -181,6 +206,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[6].answers[2].c;
         answerD.innerHTML = triviaQuestions[6].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 7){
         questionText.innerHTML = triviaQuestions[7].question;
         answerA.innerHTML = triviaQuestions[7].answers[0].a;
@@ -188,6 +214,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[7].answers[2].c;
         answerD.innerHTML = triviaQuestions[7].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 8){
         questionText.innerHTML = triviaQuestions[8].question;
         answerA.innerHTML = triviaQuestions[8].answers[0].a;
@@ -195,6 +222,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[8].answers[2].c;
         answerD.innerHTML = triviaQuestions[8].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
     }else if(currentQuestion === 9){
         questionText.innerHTML = triviaQuestions[9].question;
         answerA.innerHTML = triviaQuestions[9].answers[0].a;
@@ -202,6 +230,7 @@ function nextQuestionFunc () {
         answerC.innerHTML = triviaQuestions[9].answers[2].c;
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
         nextQuestion.classList.add('hide')
+        gameStartBtn.classList.add('hide')
         // Changing next question button text to read 'Complete Game' on last question
         nextQuestion.innerHTML = 'Complete Game'
     // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing:
