@@ -14,7 +14,7 @@ This game is a ten question multiple choice trivia game:
 <li>At this same time, the scoreboard above the question text will update. If the answer is correct, both numbers will be incrmeent by one. If the answer is incorrect, only the number to the right of the 'out of' text will update.</li>
 <li>The user will then click the next question button below the answers</li>
 <li>The game will continue in that fashion until all ten questions have been answered by the user</li>
-<li>Once the final question has been answered, the screen will change to show your final score and a message will pop up indicating the game has concluded</li>
+<li>Once the final question has been answered, the screen will change to show your final score and a message will pop up indicating if you win or not. A 7/10 or above is considered winning while a 6/10 or below is considered losing.</li>
 </ol>
 
 ## User Experience

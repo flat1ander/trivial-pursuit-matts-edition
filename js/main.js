@@ -209,11 +209,13 @@ function nextQuestionFunc () {
         resultDisplay.classList.remove('hide')
         resultDisplay.innerHTML = "You scored:"
         resultDisplay.style.color = "#00008B"
-        questionText.innerHTML = "Thank you for playing!"
         answerButtons.classList.add('hide');
         nextQuestion.classList.add('hide')
         yourScore.classList.add('hide')
         restart.classList.remove('hide')
+        if (playerPoints >= 7) 
+        {questionText.innerHTML = "You win! Great Job!"}
+            else{questionText.innerHTML = "You didn't make the grade. Better luck next time.."}
     }
 }
 
