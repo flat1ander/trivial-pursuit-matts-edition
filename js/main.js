@@ -197,13 +197,10 @@ function nextQuestionFunc () {
         resultDisplay.classList.remove('hide')
         resultDisplay.innerHTML = "You scored:"
         resultDisplay.style.color = "#00008B"
-        resultDisplay.style.fontSize = "x-large";
         questionText.innerHTML = "Thank you for playing!"
-        questionText.style.fontSize = "x-large";
         answerButtons.classList.add('hide');
         nextQuestion.classList.add('hide')
         restart.classList.remove('hide')
-        
     }
 }
 

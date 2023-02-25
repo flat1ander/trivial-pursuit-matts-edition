@@ -183,6 +183,9 @@ h1{
     #out-of{
         font-size:large;
     }
+    #result-display{
+        font-size: x-large;
+    }
   }
 
   @media screen and (max-width: 375px) {
@@ -224,7 +227,7 @@ h1{
     }
 
     #question-text{
-        font-size:medium;
+        font-size:large;
         font-weight: bold;
         color: darkblue;
         padding: 5px 5px 5px 5px;
@@ -253,9 +256,11 @@ h1{
         margin: 3px;
         cursor: pointer;
     }
-
     #out-of{
-        font-size:large;
+        font-size:medium;
+    }
+    #result-display{
+        font-size: x-large;
     }
   }
   
