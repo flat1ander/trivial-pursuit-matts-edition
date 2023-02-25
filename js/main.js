@@ -12,8 +12,6 @@ const playerScore = document.querySelector('#player-score')
 const totalScore = document.querySelector('#total-score')
 const resultDisplay = document.querySelector('#result-display')
 
-
-
 // Creating the 10 trivia questions as objects inside one large array:
 let triviaQuestions = [
     {
@@ -212,7 +210,7 @@ function nextQuestionFunc () {
 function clickingAnswers() {
     for (let i = 0; i < answerButtons.children.length; i++) {
       // Declare a variable for the individual answer buttons:
-        let answerBtn = answerButtons.children[i];
+      let answerBtn = answerButtons.children[i];
 
       // Disable next question button while answer has not been selected:
       nextQuestion.disabled = true;
@@ -285,12 +283,3 @@ function restartGame () {
 // Adding on-click events to restart and next question with the functions declared for each above:
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
-
-
-
-
-
-
-
-
-
