@@ -1,5 +1,7 @@
 # Trivial Pursuit: Matt Edition
 
+![wireframe](https://i.imgur.com/hdFeLuz.png)
+
 ## Game Description
 This game is a ten question multiple choice trivia game.
 
@@ -14,3 +16,6 @@ This game is a ten question multiple choice trivia game.
 
 ### Stretch Goals
 I plan to add additional styling to this page once the MVP is completed.
+
+
+
