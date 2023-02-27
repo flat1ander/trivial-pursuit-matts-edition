@@ -112,11 +112,9 @@ let playerPoints = 0;
 let totalPoints = 0;
 let currentQuestion = 0;
 
-
-
-
 // Game Start function:    
 function gameStart() {
+    // The game starts with a start page that includes a welcome message and the criteria for 'winning' the game. On this screen, we hide all of the control buttons and answer buttons except the 'start game' button. When the 'start game' button is clicked, the first question will appear:
     questionText.innerHTML = 'Welcome to Trivial Pursuit: Matt Edition! To win this game you must answer at least seven out of the ten multiple choice questions correctly. Good luck!'
     answerA.classList.add('hide')
     answerB.classList.add('hide')
@@ -156,8 +154,8 @@ function nextQuestionFunc () {
     for (let j = 0; j < answerButtons.children.length; j++) {
         answerButtons.children[j].disabled = false;}
     resultDisplay.classList.add('hide')
-    // Disable the next question button until an answer has been selected:
-    nextQuestion.disabled = true;
+    // Hide the next question button until an answer has been selected:
+    nextQuestion.classList.add('hide')
     // As the current question is incremented, the question text and possible answers change. We also hide the next question button until an answer has been selected:
     if(currentQuestion === 1){
         questionText.innerHTML = triviaQuestions[1].question;
@@ -233,7 +231,7 @@ function nextQuestionFunc () {
         gameStartBtn.classList.add('hide')
         // Changing next question button text to read 'Complete Game' on last question
         nextQuestion.innerHTML = 'Complete Game'
-    // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing:
+    // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing. Depending on the score, you will be informed if you won or lost:
     }else {
         resultDisplay.classList.remove('hide')
         resultDisplay.innerHTML = "You scored:"
@@ -255,8 +253,8 @@ function clickingAnswers() {
       // Declare a variable for the individual answer buttons:
       let answerBtn = answerButtons.children[i];
 
-      // Disable next question button while answer has not been selected:
-      nextQuestion.disabled = true;
+      // Hide next question button while answer has not been selected:
+      nextQuestion.classList.add('hide')
   
       // Add click event listener to each answer button
       answerBtn.addEventListener('click', function checkingAnswer() {
@@ -282,13 +280,12 @@ function clickingAnswers() {
           resultDisplay.style.color = '#8B0000'
         }
   
-        // Disable all buttons after an answer is clicked
+        // Disable all answer buttons after an answer is clicked
         for (let j = 0; j < answerButtons.children.length; j++) {
           answerButtons.children[j].disabled = true;
         }
-        // Show and enable next question button after an answer is clicked:
+        // Show next question button after an answer is clicked:
         nextQuestion.classList.remove('hide')
-        nextQuestion.disabled = false;
       });
     }
   }
