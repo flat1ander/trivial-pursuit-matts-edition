@@ -13,6 +13,7 @@ const totalScore = document.querySelector('#total-score')
 const resultDisplay = document.querySelector('#result-display')
 const gameStartBtn = document.querySelector('#game-start') 
 const scoreboard = document.querySelector('.score')
+const audio = document.querySelector('#my-audio')
 
 // Creating the 10 trivia questions as objects inside one large array:
 let triviaQuestions = [
@@ -124,6 +125,8 @@ function gameStart() {
     nextQuestion.classList.add('hide')
     scoreboard.classList.add('hide')
     { gameStartBtn.addEventListener('click', function startGameClicked() {
+    // Play background music once the start game button is clicked:    
+    audio.play();
     // Set current question to 0 (the index value for question #1) and populate the screen with the question and answers:
     currentQuestion = 0;
     questionText.innerHTML = triviaQuestions[currentQuestion].question;
@@ -328,3 +331,6 @@ function restartGame () {
 // Adding on-click events to restart and next question with the functions declared for each above:
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
+
+// Adjusting background audio down a bit:
+audio.volume = 0.25;
