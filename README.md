@@ -32,6 +32,7 @@ This game is a ten question multiple choice trivia game:
 
 ### Stretch Goals
 <ul>
+<li>As a player, I would like there to be background music while I am playing the game</li>
 <li>As a player, I would like some sort of prize/flare on the end game screen if I do praticularly well</li>
 <li>As a player, I would like the order of the questions to be randomized</li>
 </ul>
