@@ -14,6 +14,14 @@ const resultDisplay = document.querySelector('#result-display')
 const gameStartBtn = document.querySelector('#game-start') 
 const scoreboard = document.querySelector('.score')
 const audio = document.querySelector('#my-audio')
+const musicNote = document.querySelector('#music-img')
+const camera = document.querySelector('#camera-img')
+const basketball = document.querySelector('#basketball-img')
+const books = document.querySelector('#book-img')
+const car = document.querySelector('#car-img')
+const television = document.querySelector('#television-img')
+const trophy = document.querySelector('#trophy-img')
+const facepalm = document.querySelector('#facepalm-img')
 
 // Creating the 10 trivia questions as objects inside one large array:
 let triviaQuestions = [
@@ -113,6 +121,16 @@ let playerPoints = 0;
 let totalPoints = 0;
 let currentQuestion = 0;
 
+// Hiding images until they are necessary:
+musicNote.classList.add('hide')
+camera.classList.add('hide')
+basketball.classList.add('hide')
+books.classList.add('hide')
+car.classList.add('hide')
+television.classList.add('hide')
+trophy.classList.add('hide')
+facepalm.classList.add('hide')
+
 // Game Start function:    
 function gameStart() {
     // The game starts with a start page that includes a welcome message and the criteria for 'winning' the game. On this screen, we hide all of the control buttons and answer buttons except the 'start game' button. When the 'start game' button is clicked, the first question will appear:
@@ -139,6 +157,7 @@ function gameStart() {
     answerC.classList.remove('hide')
     answerD.classList.remove('hide')
     scoreboard.classList.remove('hide')
+    musicNote.classList.remove('hide')
     // Hiding the result display which tells you if you answered correctly as well as the restart button:
     resultDisplay.classList.add('hide')
     restart.classList.add('hide')
@@ -168,6 +187,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[1].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        musicNote.classList.add('hide')
+        camera.classList.remove('hide')
     }else if(currentQuestion === 2){
         questionText.innerHTML = triviaQuestions[2].question;
         answerA.innerHTML = triviaQuestions[2].answers[0].a;
@@ -176,6 +197,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[2].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        camera.classList.add('hide')
+        basketball.classList.remove('hide')
     }else if(currentQuestion === 3){
         questionText.innerHTML = triviaQuestions[3].question;
         answerA.innerHTML = triviaQuestions[3].answers[0].a;
@@ -184,6 +207,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[3].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        books.classList.remove('hide')
+        basketball.classList.add('hide')
     }else if(currentQuestion === 4){
         questionText.innerHTML = triviaQuestions[4].question;
         answerA.innerHTML = triviaQuestions[4].answers[0].a;
@@ -192,6 +217,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[4].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        books.classList.add('hide')
+        camera.classList.remove('hide')
     }else if(currentQuestion === 5){
         questionText.innerHTML = triviaQuestions[5].question;
         answerA.innerHTML = triviaQuestions[5].answers[0].a;
@@ -200,6 +227,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[5].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        camera.classList.add('hide')
+        musicNote.classList.remove('hide')
     }else if(currentQuestion === 6){
         questionText.innerHTML = triviaQuestions[6].question;
         answerA.innerHTML = triviaQuestions[6].answers[0].a;
@@ -208,6 +237,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[6].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        camera.classList.remove('hide')
+        musicNote.classList.add('hide')
     }else if(currentQuestion === 7){
         questionText.innerHTML = triviaQuestions[7].question;
         answerA.innerHTML = triviaQuestions[7].answers[0].a;
@@ -216,6 +247,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[7].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        camera.classList.add('hide')
+        musicNote.classList.remove('hide')
     }else if(currentQuestion === 8){
         questionText.innerHTML = triviaQuestions[8].question;
         answerA.innerHTML = triviaQuestions[8].answers[0].a;
@@ -224,6 +257,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[8].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        car.classList.remove('hide')
+        musicNote.classList.add('hide')
     }else if(currentQuestion === 9){
         questionText.innerHTML = triviaQuestions[9].question;
         answerA.innerHTML = triviaQuestions[9].answers[0].a;
@@ -232,6 +267,8 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
+        television.classList.remove('hide')
+        car.classList.add('hide')
         // Changing next question button text to read 'Complete Game' on last question
         nextQuestion.innerHTML = 'Complete Game'
     // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing. Depending on the score, you will be informed if you won or lost:
@@ -243,9 +280,14 @@ function nextQuestionFunc () {
         nextQuestion.classList.add('hide')
         yourScore.classList.add('hide')
         restart.classList.remove('hide')
+        television.classList.add('hide')
         if (playerPoints >= 7) 
-        {questionText.innerHTML = "You win! Great Job!"}
-            else{questionText.innerHTML = "You didn't make the grade. Better luck next time.."}
+        {questionText.innerHTML = "You win! Great Job!"
+        trophy.classList.remove('hide')
+    }
+            else{questionText.innerHTML = "You didn't make the grade. Better luck next time.."
+            facepalm.classList.remove('hide')
+        }
     }
 }
 
@@ -311,12 +353,15 @@ function restartGame () {
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
-    // Showing the answer buttons and next question button again:
+    // Showing the answer buttons, next question button and music note image again:
     answerButtons.classList.remove('hide');
     nextQuestion.classList.remove('hide')
-    // Hiding the result display text which tells you if your answer is correct. Also hiding the restart button:
+    musicNote.classList.remove('hide')
+    // Hiding the result display text which tells you if your answer is correct. Also hiding the restart button and trophy/facepalm images:
     resultDisplay.classList.add('hide')
     restart.classList.add('hide')
+    trophy.classList.add('hide')
+    facepalm.classList.add('hide')
     // Showing the yourScore variable
     yourScore.classList.remove('hide')
     // Linking the internal score variables to the DOM 
@@ -334,3 +379,6 @@ nextQuestion.addEventListener('click', nextQuestionFunc);
 
 // Adjusting background audio down by 75%:
 audio.volume = 0.25;
+
+
+
