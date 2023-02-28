@@ -332,5 +332,5 @@ function restartGame () {
 restart.addEventListener('click', restartGame);
 nextQuestion.addEventListener('click', nextQuestionFunc);
 
-// Adjusting background audio down a bit:
+// Adjusting background audio down by 75%:
 audio.volume = 0.25;
