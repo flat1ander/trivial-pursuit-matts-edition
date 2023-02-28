@@ -108,7 +108,7 @@ h1{
 #result-display{
     font-size:xx-large;
     font-weight: bold;
-    padding: 20px;
+    padding: 10px;
 }
 
 
@@ -123,7 +123,6 @@ h1{
     .game-board{
         display: flex;
         flex-direction: column;
-        
     }
 
     body{
@@ -151,6 +150,45 @@ h1{
         box-shadow: 0 0 2px 2px;
         padding: 5px;
         margin: 5px;
+        cursor: pointer;
+    }
+    #question-text{
+        font-size:large;
+        font-weight: bold;
+        color: darkblue;
+        padding: 20px 20px 20px 20px;
+    }
+    .score{
+        font-size:large;
+        font-weight: bold;
+    }
+    #out-of{
+        font-size:large;
+    }
+    #result-display{
+        font-size: large;
+    }
+    .answer-button{
+        font-size:medium;
+        font-weight: bold;
+        background-color: salmon;
+        color:darkblue;
+        border-radius: 4px;
+        box-shadow: 0 0 2px 2px;
+        padding: 3px;
+        margin: 3px;
+        cursor: pointer;
+    }
+
+    .controls-button{
+        font-size:medium;
+        font-weight: bold;
+        background-color:darksalmon;
+        color:darkblue;
+        border-radius: 4px;
+        box-shadow: 0 0 2px 2px;
+        padding: 3px;
+        margin: 3px;
         cursor: pointer;
     }
   }
@@ -184,25 +222,48 @@ h1{
     }
 
     .possible-answers{
-        padding: 5px;
+        padding: 3px;
     }
 
     .game-controls{
-        padding: 5px;
+        padding: 3px;
     }
 
     #question-text{
         font-size:large;
         font-weight: bold;
         color: darkblue;
-        padding: 5px 5px 5px 5px;
+        padding: 3px 3px 3px 3px;
     }
 
     #out-of{
         font-size:large;
     }
     #result-display{
-        font-size: x-large;
+        font-size: large;
+    }
+    .answer-button{
+        font-size:small;
+        font-weight: bold;
+        background-color: salmon;
+        color:darkblue;
+        border-radius: 7px;
+        box-shadow: 0 0 2px 2px;
+        padding: 3px;
+        margin: 3px;
+        cursor: pointer;
+    }
+
+    .controls-button{
+        font-size:small;
+        font-weight: bold;
+        background-color:darksalmon;
+        color:darkblue;
+        border-radius: 7px;
+        box-shadow: 0 0 2px 2px;
+        padding: 3px;
+        margin: 3px;
+        cursor: pointer;
     }
   }
 
@@ -222,7 +283,7 @@ h1{
         font-size:medium;
         font-weight: bold;
         color: darkblue;
-        padding: 10px 10px 10px 10px;
+        padding: 5px 5px 5px 5px;
     }
 
     .score{
@@ -240,13 +301,6 @@ h1{
 
     .game-controls{
         padding: 5px;
-    }
-
-    #question-text{
-        font-size:large;
-        font-weight: bold;
-        color: darkblue;
-        padding: 5px 5px 5px 5px;
     }
 
     .answer-button{
@@ -276,7 +330,7 @@ h1{
         font-size:medium;
     }
     #result-display{
-        font-size: x-large;
+        font-size: medium;
     }
   }
   
