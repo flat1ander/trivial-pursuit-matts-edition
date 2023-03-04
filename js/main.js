@@ -371,6 +371,3 @@ restart.addEventListener('click', restartGame);
 
 // Adjusting background audio down by 75%:
 audio.volume = 0.25;
-
-
-
