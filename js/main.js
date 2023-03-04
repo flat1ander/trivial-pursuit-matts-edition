@@ -113,8 +113,7 @@ let triviaQuestions = [
             {b: 'Scott Bakula', answer: false},
             {c: 'Peter Faulk', answer: false},
             {d: 'David Hasselhoff', answer: false},
-        ],
-        // img: "./images/television.png"
+        ]
     }]
 
 // Declaring variables for the current question and the score:
@@ -168,53 +167,17 @@ function gameStart() {
 // Invoke the gameStart function
 gameStart();
 
-// function renderQuestion () {
-//     console.log("entered render question")
-//     if (currentQuestion <= 9){       
-//     questionText.innerHTML = currentQuestion.question;
-//     answerA.innerHTML = triviaQuestions[currentQuestion].answers[0].a;
-//     answerB.innerHTML = triviaQuestions[currentQuestion.answers[1].b;
-//     answerC.innerHTML = currentQuestion.answers[2].c;
-//     answerD.innerHTML = currentQuestion.answers[3].d;
-//     nextQuestion.classList.add('hide')
-//     gameStartBtn.classList.add('hide')
-//     musicNote.classList.add('hide')
-//     camera.classList.remove('hide')
-//     }
-//     else {
-//         resultDisplay.classList.remove('hide')
-//         resultDisplay.innerHTML = "You scored:"
-//         resultDisplay.style.color = "#00008B"
-//         answerButtons.classList.add('hide');
-//         nextQuestion.classList.add('hide')
-//         yourScore.classList.add('hide')
-//         restart.classList.remove('hide')
-//         television.classList.add('hide')
-//         if (playerPoints >= 7) 
-//         {questionText.innerHTML = "You win! Great Job!"
-//         trophy.classList.remove('hide')
-//     }
-//             else{questionText.innerHTML = "You didn't make the grade. Better luck next time.."
-//             facepalm.classList.remove('hide')
-//         }
-//     }
-// };//End of renderQuestion function
-
-
 // Next Question function:
 function nextQuestionFunc () {
-    console.log(currentQuestion)
     // Increment currentQuestion by 1:
     currentQuestion ++;
-    console.log(currentQuestion)
     // Loop through all of the answer buttons to enable them again:
     for (let j = 0; j < answerButtons.children.length; j++) {
         answerButtons.children[j].disabled = false;}
-    //     
+    // Hide the result display until an answer has been selected:     
     resultDisplay.classList.add('hide')
     // Hide the next question button until an answer has been selected:
     nextQuestion.classList.add('hide')
-
     // As the current question is incremented, the question text and possible answers change. We also hide the next question button until an answer has been selected. We also hide the previous image for the question category and show the new one:
     if(currentQuestion === 1){
         questionText.innerHTML = triviaQuestions[1].question;
@@ -304,19 +267,19 @@ function nextQuestionFunc () {
         answerD.innerHTML = triviaQuestions[9].answers[3].d;
         nextQuestion.classList.add('hide')
         gameStartBtn.classList.add('hide')
-        television.classList.remove('hide')
         car.classList.add('hide')
+        television.classList.remove('hide')
         // Changing next question button text to read 'Complete Game' on last question
         nextQuestion.innerHTML = 'Complete Game'
     // Once all ten questions have been answered, a message pops up indicating your total score and thanking you for playing. Depending on the score, you will be informed if you won or lost:
     }else {
         resultDisplay.classList.remove('hide')
+        restart.classList.remove('hide')
         resultDisplay.innerHTML = "You scored:"
         resultDisplay.style.color = "#00008B"
         answerButtons.classList.add('hide');
         nextQuestion.classList.add('hide')
         yourScore.classList.add('hide')
-        restart.classList.remove('hide')
         television.classList.add('hide')
         if (playerPoints >= 7) 
         {questionText.innerHTML = "You win! Great Job!"
@@ -327,7 +290,7 @@ function nextQuestionFunc () {
         }
     }
 }
-
+// Add an on click event listener to the next question function:
 nextQuestion.addEventListener('click', nextQuestionFunc);
 
 // Adding a function to determine if the correct answer was clicked and adding points to the scoreboard
@@ -376,7 +339,6 @@ function clickingAnswers() {
 // Invoking the clickingAnswers function:
 clickingAnswers()
 
-
 //Game Restart function:
 function restartGame () {
     //Resetting all of the scores and current question:
@@ -392,9 +354,8 @@ function restartGame () {
     answerB.innerHTML = triviaQuestions[0].answers[1].b;
     answerC.innerHTML = triviaQuestions[0].answers[2].c;
     answerD.innerHTML = triviaQuestions[0].answers[3].d;
-    // Showing the answer buttons, next question button and music note image again:
+    // Showing the answer buttons and music note image again:
     answerButtons.classList.remove('hide');
-    nextQuestion.classList.remove('hide')
     musicNote.classList.remove('hide')
     // Hiding the result display text which tells you if your answer is correct. Also hiding the restart button and trophy/facepalm images:
     resultDisplay.classList.add('hide')
@@ -411,8 +372,7 @@ function restartGame () {
     // Hiding the next question button upon restart until the question has been answered:
     nextQuestion.classList.add('hide')
 }
-
-// Adding on-click events to restart and next question with the functions declared for each above:
+// Adding an on-click event to the restart button with the function declared above:
 restart.addEventListener('click', restartGame);
 
 // Adjusting background audio down by 75%:
