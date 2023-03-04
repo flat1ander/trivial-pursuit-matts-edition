@@ -114,7 +114,7 @@ let triviaQuestions = [
             {c: 'Peter Faulk', answer: false},
             {d: 'David Hasselhoff', answer: false},
         ],
-        img: "./images/television.png"
+        // img: "./images/television.png"
     }]
 
 // Declaring variables for the current question and the score:
@@ -168,54 +168,60 @@ function gameStart() {
 // Invoke the gameStart function
 gameStart();
 
-// Trying to streamline the large if statement comented out below:
-
-        function renderQuestion (currentQuestion) {
-            if (currentQuestion <= 9){    
-            questionText.innerHTML = currentQuestion.question;
-            answerA.innerHTML = currentQuestion.answers[0].a;
-            answerB.innerHTML = currentQuestion.answers[1].b;
-            answerC.innerHTML = currentQuestion.answers[2].c;
-            answerD.innerHTML = currentQuestion.answers[3].d;
-            nextQuestion.classList.add('hide')
-            gameStartBtn.classList.add('hide')
-            }
-            else {
-                resultDisplay.classList.remove('hide')
-                resultDisplay.innerHTML = "You scored:"
-                resultDisplay.style.color = "#00008B"
-                answerButtons.classList.add('hide');
-                nextQuestion.classList.add('hide')
-                yourScore.classList.add('hide')
-                restart.classList.remove('hide')
-                if (playerPoints >= 7) 
-                {questionText.innerHTML = "You win! Great Job!"
-                trophy.classList.remove('hide')
-            }
-                    else{questionText.innerHTML = "You didn't make the grade. Better luck next time.."
-                    facepalm.classList.remove('hide')
-                }
-            }return
+function renderQuestion () {
+    console.log("entered render question")
+    if (currentQuestion <= 9){       
+    questionText.innerHTML = triviaQuestions[currentQuestion].question;
+    answerA.innerHTML = triviaQuestions[currentQuestion].answers[0].a;
+    answerB.innerHTML = triviaQuestions[currentQuestion].answers[1].b;
+    answerC.innerHTML = triviaQuestions[currentQuestion].answers[2].c;
+    answerD.innerHTML = triviaQuestions[currentQuestion].answers[3].d;
+    nextQuestion.classList.add('hide')
+    gameStartBtn.classList.add('hide')
+    musicNote.classList.add('hide')
+    camera.classList.remove('hide')
+    }
+    else {
+        resultDisplay.classList.remove('hide')
+        resultDisplay.innerHTML = "You scored:"
+        resultDisplay.style.color = "#00008B"
+        answerButtons.classList.add('hide');
+        nextQuestion.classList.add('hide')
+        yourScore.classList.add('hide')
+        restart.classList.remove('hide')
+        television.classList.add('hide')
+        if (playerPoints >= 7) 
+        {questionText.innerHTML = "You win! Great Job!"
+        trophy.classList.remove('hide')
+    }
+            else{questionText.innerHTML = "You didn't make the grade. Better luck next time.."
+            facepalm.classList.remove('hide')
         }
+    }
+};//End of renderQuestion function
 
-        
 
 // Next Question function:
 function nextQuestionFunc () {
+    console.log(currentQuestion)
     // Increment currentQuestion by 1:
     currentQuestion ++;
+    console.log(currentQuestion)
     // Loop through all of the answer buttons to enable them again:
     for (let j = 0; j < answerButtons.children.length; j++) {
         answerButtons.children[j].disabled = false;}
+    //     
     resultDisplay.classList.add('hide')
     // Hide the next question button until an answer has been selected:
     nextQuestion.classList.add('hide')
-}
 
-// Add on click event listener for the function above:
-nextQuestion.addEventListener('click', nextQuestionFunc);
 
-    // As the current question is incremented, the question text and possible answers change. We also hide the next question button until an answer has been selected. We also hide the previous image for the question category and show the new one:
+renderQuestion()
+    }
+
+
+
+//     // As the current question is incremented, the question text and possible answers change. We also hide the next question button until an answer has been selected. We also hide the previous image for the question category and show the new one:
 //     if(currentQuestion === 1){
 //         questionText.innerHTML = triviaQuestions[1].question;
 //         answerA.innerHTML = triviaQuestions[1].answers[0].a;
@@ -327,6 +333,8 @@ nextQuestion.addEventListener('click', nextQuestionFunc);
 //         }
 //     }
 // }
+
+nextQuestion.addEventListener('click', nextQuestionFunc);
 
 // Adding a function to determine if the correct answer was clicked and adding points to the scoreboard
 // Loop through each answer button:
