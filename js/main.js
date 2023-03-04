@@ -299,16 +299,12 @@ function clickingAnswers() {
     for (let i = 0; i < answerButtons.children.length; i++) {
       // Declare a variable for the individual answer buttons:
       let answerBtn = answerButtons.children[i];
-
       // Hide next question button while answer has not been selected:
       nextQuestion.classList.add('hide')
-  
       // Add click event listener to each answer button
       answerBtn.addEventListener('click', function checkingAnswer() {
-      
         // Check if the clicked answer is correct
         let isCorrect = triviaQuestions[currentQuestion].answers[i].answer;
-      
         // Increase player's score and total score if the answer is correct. Only increase total score if incorrect. Include a message indicating if answer is correct or not:
         if (isCorrect) {
           playerPoints+= 1;
@@ -318,7 +314,6 @@ function clickingAnswers() {
           resultDisplay.classList.remove('hide')
           resultDisplay.innerHTML = 'Correct!'
           resultDisplay.style.color = 'green'
-
         } else {
           totalPoints+= 1;
           totalScore.innerHTML = totalPoints;
@@ -326,7 +321,6 @@ function clickingAnswers() {
           resultDisplay.innerHTML = 'Incorrect'
           resultDisplay.style.color = '#8B0000'
         }
-  
         // Disable all answer buttons after an answer is clicked
         for (let j = 0; j < answerButtons.children.length; j++) {
           answerButtons.children[j].disabled = true;
