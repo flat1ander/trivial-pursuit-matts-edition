@@ -158,7 +158,7 @@ function gameStart() {
     answerD.classList.remove('hide')
     scoreboard.classList.remove('hide')
     musicNote.classList.remove('hide')
-    // Hiding the result display which tells you if you answered correctly as well as the restart button:
+    // Hiding the result display which tells you if you answered correctly as well as the restart, next question and start game buttons:
     resultDisplay.classList.add('hide')
     restart.classList.add('hide')
     nextQuestion.classList.add('hide')
